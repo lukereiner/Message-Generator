@@ -29,23 +29,21 @@ function randNum(min, max) {
 }
 
 function messageOutput() {
-    for (type in nbaData) {
-        let listID = randNum(2019, 2023);
+    let keyID = Math.floor(Math.random() * 3);
+    let valueID = randNum(2019, 2023);
 
-        switch (type) {
-            case 'scoring':
-                genResponse.push(`The scoring champion for ${listID} was: ${nbaData[type][listID]}`);
-                break;
-            case 'mvp':
-                genResponse.push(`The league MVP for ${listID} was: ${nbaData[type][listID]}`);
-                break;
-            case 'titles':
-                genResponse.push(`The NBA champion for ${listID} was: ${nbaData[type][listID]}`);
-                break;
-            default:
-                return 'error';
-        }
-
+    switch (keyID) {
+        case 0:
+            genResponse.push(`The scoring champion for ${valueID} was: ${nbaData['scoring'][valueID]}`);
+            break;
+        case 1:
+            genResponse.push(`The league MVP for ${valueID} was: ${nbaData['mvp'][valueID]}`);
+            break;
+        case 2:
+            genResponse.push(`The NBA champion for ${valueID} was: ${nbaData['titles'][valueID]}`);
+            break;
+        default:
+            return 'error';
     };
     return genResponse;
 };
